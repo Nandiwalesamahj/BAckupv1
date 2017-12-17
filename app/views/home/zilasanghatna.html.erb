@@ -1,8 +1,8 @@
 <div class="row">
 <%= render 'home/sidebar' %>
-		<h2 align="center"><strong>जिल्हा संघटना पदाधिकारी</strong></h2>
+		
 		<div class="col-xs-10">
-	
+<h2 align="center"><strong>जिल्हा संघटना पदाधिकारी</strong></h2>
 	<% if user_signed_in? &&  current_user.user_type == "Super_admin" %>
 		<div class="row">
 			<% if @summary_exist != nil %>
@@ -19,12 +19,12 @@
 		</div>
 	<% else %>
 	<% if @summary_exist != nil %>
-		<h4 align="center" class="margin-bottom2">(<%= @summary_exist.Zilla_sanghatna_summary %>)</h4>
+		<h4 align="center" class="margin-bottom2"><%= simple_format(@summary_exist.Zilla_sanghatna_summary) %></h4>
 	<% end %>
 	<% end %> 
 	<hr>
-	</div>
-		<div class="col-xs-7">
+	
+		<div class="col-xs-9">
 		<div class="row margin-page-data">
 			<%= image_tag(("map.jpg") , class: "image-responsive") %>
 		</div>
@@ -211,6 +211,9 @@
 			<h3>जाहिरात</h3>
 		</div>
 			<div class="panel-body scrollable">
+			<div class="advertisement-box">
+			  
+			</div>
 			<% if @ads.size > 0 %>
 				<% for ad in @ads %>
 					<div class="advertisement-box">
@@ -225,4 +228,5 @@
 		</div>
 	</div>
 	</div>
+</div>
 </div>

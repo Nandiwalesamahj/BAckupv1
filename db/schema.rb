@@ -261,21 +261,21 @@ ActiveRecord::Schema.define(version: 20170814185321) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
-    t.string   "first_name",                               null: false
-    t.string   "middle_name",                              null: false
-    t.string   "last_name",                                null: false
-    t.string   "gender",                                   null: false
+    t.string   "first_name"                              
+    t.string   "middle_name"                             
+    t.string   "last_name"                              
+    t.string   "gender"                                
     t.date     "birthdate"
     t.string   "post"
     t.string   "tenure"
     t.string   "avatar"
-    t.string   "phone",                                    null: false
-    t.string   "address",                                  null: false
+    t.string   "phone"                                  
+    t.string   "address"                                 
     t.string   "user_type"
     t.string   "adhikari_type"
     t.string   "adhikari_type_created",     default: "No"
     t.text     "bio"
-    t.string   "work_at_district",                         null: false
+    t.string   "work_at_district"                        
     t.string   "vadhuvar_created",          default: "No"
     t.string   "tanta_mukti_created",       default: "No"
     t.string   "karmachari_bharti_created", default: "No"

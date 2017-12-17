@@ -1,7 +1,8 @@
 <div class="row">
 <%= render 'home/sidebar' %>
-<h2 align="center"><strong>भविष्‍यातील ध्‍येय धोरणे</strong></h2>
+
 	<div class="col-xs-10">	
+	<h2 align="center"><strong>भविष्‍यातील ध्‍येय धोरणे</strong></h2>
 	<% if user_signed_in? &&  current_user.user_type == "Super_admin" %>
 	<div class="row">
 		<% if @summary_exist != nil %>
@@ -18,7 +19,7 @@
 	</div>
 	<% else %>
 	<% if @summary_exist != nil %>
-	<h4 align="center" class="margin-bottom2">(<%= @summary_exist.future_vision_summary %>)</h4>
+	<h4 align="center" class="margin-bottom2"><%= simple_format(@summary_exist.future_vision_summary) %></h4>
 	<% end %>
 	<% end %>
 		<% if user_signed_in? && current_user.user_type == "Super_admin" %>
@@ -26,6 +27,7 @@
 		<% end %>
 		<hr>
 		<div class="row">
+<% count = 1 %>
             <div class="col-xs-8">
 			<% if  @visions!= nil &&  @visions.size > 0 %>
 				<div class="table-responsive">
@@ -38,7 +40,7 @@
                             <th> ध्‍येय</th>
                         </tr>
                     </thead>
-					<% count = 1 %>
+					
 					<% for member in @visions %>
 					<tbody>
 						<tr>
@@ -47,7 +49,7 @@
 						</td>
 						<td>
 							<p align="left" class="margin-left"><% if member.description? %>
-								<%= member.description %>
+								<%= simple_format(member.description) %>
 								<% end %>
 							</p>
 							<p align="left" class="margin-left"><% if user_signed_in? && current_user.user_type == "Super_admin" %>
@@ -61,6 +63,7 @@
 					<% count = count + 1 %>
 					<% end %>
 				</table>
+
 				</div>
 			<% else %>
 				<h3 align="center"> डेटा जोडण्यासाठी प्रशासकाशी संपर्क साधा </h3>
@@ -72,6 +75,9 @@
                 <h3>जाहिरात</h3>
               </div>
              	<div class="panel-body scrollable">
+			<div class="advertisement-box">
+			 
+			</div>
 			<% if @ads.size > 0 %>
 				<% for ad in @ads %>
 					<div class="advertisement-box">
